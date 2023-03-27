@@ -1,0 +1,13 @@
+.navBar{
+    color: #0096c7;
+    border-bottom: 1px solid rgb(191, 219, 254);
+    padding-bottom: 8px;
+}
+
+.btn{
+    background-color: #0096c7;
+}
+
+.name{
+    color: #0096c7;
+}
