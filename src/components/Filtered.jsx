@@ -8,21 +8,21 @@ const Filtered = ({
   setActiveGenre,
   trending,
 }) => {
-  const trends = () => {
-    setActiveGenre(0);
-    setFiltered(trending)
-  };
 
   useEffect(() => {
+    if (activeGenre === 0) {
+      setFiltered(trending);
+      return
+    }
     const filterMovie = trending.filter((movie) =>
       movie.genre_ids.includes(activeGenre)
     );
     setFiltered(filterMovie);
   }, [activeGenre]);
   return (
-    <div className=" ml-20 mt-5">
+    <div  className=" ml-20 mt-5">
       <button
-        onClick={trends}
+        onClick={()=> setActiveGenre(0)}
         className=" btn text-white text-lg rounded px-5 py-1"
       >
         Trending

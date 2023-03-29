@@ -3,6 +3,7 @@ import Movie from "./components/Movie";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Filtered from "./components/Filtered";
+import { AnimatePresence, motion } from "framer-motion";
 
 const App = () => {
   const [trending, setTrending] = useState([]);
@@ -26,18 +27,25 @@ const App = () => {
   return (
     <div className="app">
       <Navigation />
-      <Filtered
-        filtered={filtered}
-        setFiltered={setFiltered}
-        activeGenre={activeGenre}
-        setActiveGenre={setActiveGenre}
-        trending={trending}
-      />
-      <div className=" flex flex-wrap gap-20 mt-10 justify-center">
-        {filtered.map((movie) => {
-          return <Movie key={movie.id} {...movie} />;
-        })}
-      </div>
+      <motion.div >
+        <Filtered
+          filtered={filtered}
+          setFiltered={setFiltered}
+          activeGenre={activeGenre}
+          setActiveGenre={setActiveGenre}
+          trending={trending}
+        />
+      </motion.div>
+      <motion.div
+        layout
+        className=" flex flex-wrap gap-20 mt-10 justify-center"
+      >
+        <AnimatePresence>
+          {filtered.map((movie) => {
+            return <Movie key={movie.id} {...movie} />;
+          })}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 };

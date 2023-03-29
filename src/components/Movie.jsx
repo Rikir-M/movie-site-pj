@@ -1,5 +1,6 @@
 import React from "react";
 import { Heart } from "react-bootstrap-icons";
+import { motion } from "framer-motion";
 
 const Movie = ({
   name,
@@ -10,8 +11,7 @@ const Movie = ({
   first_air_date,
 }) => {
   return (
-    <div className="">
-      <div>
+      <motion.div layout  >
         <img
           className=" rounded-lg"
           src={"https://image.tmdb.org/t/p/w400/" + backdrop_path}
@@ -31,8 +31,7 @@ const Movie = ({
           {release_date}
           {first_air_date}
         </p>
-      </div>
-    </div>
+      </motion.div>
   );
 };
 
